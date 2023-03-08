@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-body">
+    <h2 class="text-center card-title">Entrar</h2>
+
+    <form (ngSubmit)="onSubmit()" #form="ngForm">
+      <div class="mb-3">
+        <label class="form-label">Usuário</label>
+        <input class="form-control" type="text" name="username" id="username" [(ngModel)]="login.username" required />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Senha</label>
+        <input class="form-control" type="password" name="password" id="password" [(ngModel)]="login.password" required />
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="form.form.invalid">Entrar</button>
+    </form>
+  </div>
+</div>
+
+
