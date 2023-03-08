@@ -3,6 +3,7 @@
 API
 ```bash
   cd api
+  npm install
   npm run dev
 ```
 APP
