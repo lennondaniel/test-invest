@@ -7,10 +7,15 @@ export default class ExpressAdapter implements HttpServer {
     constructor () {
         this.app = express();
         this.app.use(express.json());
+        this.app.use(function(req, res, next) {
+            res.header("Access-Control-Allow-Origin", "*");
+            res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+            next();
+        });
     }
 
     on(method: string, url: string, callback: Function): void {
-        this.app[method](url, async function (req: Request, res: Response) {
+        this.app[method](`/api${url}`, async function (req: Request, res: Response) {
             const output = await callback(req.params, req.body);
             res.status(output.status).json(output.response);
         });

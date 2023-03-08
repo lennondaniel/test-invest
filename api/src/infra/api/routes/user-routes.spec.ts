@@ -3,7 +3,7 @@ import axios from "axios";
 
 test('User must success login', async () => {
     const response = await axios({
-        url: 'http://localhost:3000/login',
+        url: 'http://localhost:3000/api/login',
         method: 'POST',
         data: {
             username: 'test',
